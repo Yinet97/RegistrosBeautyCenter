@@ -1,5 +1,5 @@
 ﻿
-using Registros.Models;
+using RegistrosBeautyCenter.Models;
 using RegistrosBeautyCenter.DAL;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace Registros.BLL
+namespace RegistrosBeautyCenter.BLL
 {
     public class CitasBLL
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Registros.Models
+namespace RegistrosBeautyCenter.Models
 {
     public class Empleados
     {
