@@ -21,7 +21,7 @@ namespace RegistrosBeautyCenter
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/Plantilla.css",
                       "~/Content/site.css"));
         }
     }
