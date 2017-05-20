@@ -1,4 +1,5 @@
 ﻿using RegistrosBeautyCenter.DAL;
+using RegistrosBeautyCenter.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace RegistrosBeautyCenter.BLL
             {
                 try
                 {
-                    conexion.service.Add(new Models.Servicios() { TipoServicio = "Secado" });
-                    conexion.service.Add(new Models.Servicios() { TipoServicio = "blabla" });
-                    conexion.service.Add(new Models.Servicios() { TipoServicio = "Nose" });
+                    conexion.service.Add(new Models.Servicios() { ServicioId = 1, TipoServicio = "Secado", Costo = 500 });
+                    conexion.service.Add(new Models.Servicios() { ServicioId = 2, TipoServicio = "blabla", Costo = 500 });
+                    conexion.service.Add(new Models.Servicios() { ServicioId = 3, TipoServicio = "Jesus", Costo = 500 });
                     conexion.SaveChanges();
                     return true;
                 }
