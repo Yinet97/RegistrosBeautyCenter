@@ -14,7 +14,6 @@ namespace RegistrosBeautyCenter.Controllers
     public class ClientesController : Controller
     {
         private BeautyCenterDb db = new BeautyCenterDb();
-
         // GET: Clientes
         public ActionResult Index()
         {

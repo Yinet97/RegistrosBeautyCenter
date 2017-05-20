@@ -14,12 +14,14 @@ namespace RegistrosBeautyCenter.Controllers
     public class CitasController : Controller
     {
         private BeautyCenterDb db = new BeautyCenterDb();
-
+        List<Servicios>lista = new List<Servicios>();
+        List<Clientes> listac = new List<Clientes>();
         // GET: Citas
         public ActionResult Index()
         {
-            return View(db.Cita.ToList());
-
+            ViewBag.TotalService = lista.Count();
+            ViewBag.Clientes = listac.Count();
+            return View();
         }
 
         // GET: Citas/Details/5
@@ -40,6 +42,8 @@ namespace RegistrosBeautyCenter.Controllers
         // GET: Citas/Create
         public ActionResult Create()
         {
+            ViewBag.TotalService = BLL.ServiciosBLL.GetLista();
+            ViewBag.Clientes = BLL.ClientesBLL.GetLista();
             return View();
         }
 

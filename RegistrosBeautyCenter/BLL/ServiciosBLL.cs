@@ -11,6 +11,7 @@ namespace RegistrosBeautyCenter.BLL
     {
         public static bool Guardar()
         {
+            bool resultado = false;
             using (var conexion = new BeautyCenterDb())
             {
                 try
@@ -19,7 +20,25 @@ namespace RegistrosBeautyCenter.BLL
                     conexion.service.Add(new Models.Servicios() { ServicioId = 2, TipoServicio = "blabla", Costo = 500 });
                     conexion.service.Add(new Models.Servicios() { ServicioId = 3, TipoServicio = "Jesus", Costo = 500 });
                     conexion.SaveChanges();
-                    return true;
+                    resultado = true;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                return resultado;
+            }
+        }
+        public static List<Servicios> GetLista()
+        {
+            var lista = new List<Servicios>();
+            using (var conexion = new BeautyCenterDb())
+            {
+                try
+                {
+                    lista = conexion.service.ToList();
+
                 }
                 catch (Exception)
                 {
@@ -27,7 +46,10 @@ namespace RegistrosBeautyCenter.BLL
                     throw;
                 }
             }
-            return false;
+            return lista;
         }
+
     }
 }
+
+    

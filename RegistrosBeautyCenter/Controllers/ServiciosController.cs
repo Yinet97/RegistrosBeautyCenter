@@ -15,21 +15,9 @@ namespace RegistrosBeautyCenter.Controllers
     {
         private BeautyCenterDb db = new BeautyCenterDb();
         
-        // GET: Servicios
-        IList<Servicios> ServicioList = new List<Servicios>() {
-                    new Servicios(){ ServicioId=1, TipoServicio="Secado" , Costo = 500},
-                    new Servicios(){ ServicioId=2, TipoServicio="Bill" ,Costo = 500},
-                    new Servicios(){ ServicioId=3, TipoServicio="Ram",Costo = 500 },
-                    new Servicios(){ ServicioId=4, TipoServicio="Ron",Costo = 500 },
-                    new Servicios(){ ServicioId=5, TipoServicio="Rob",Costo = 500}
-                };
-        // GET: Student
         public ActionResult Index()
         {
-            ViewBag.TotalService = ServicioList.Count();
             return View(db.service.ToList());
-
-            return View();
         }
 
         // GET: Servicios/Details/5
