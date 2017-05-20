@@ -16,7 +16,7 @@ namespace RegistrosBeautyCenter.Controllers
         private BeautyCenterDb db = new BeautyCenterDb();
         
         // GET: Servicios
-        IList<Servicios> studentList = new List<Servicios>() {
+        IList<Servicios> ServicioList = new List<Servicios>() {
                     new Servicios(){ ServicioId=1, TipoServicio="Secado" },
                     new Servicios(){ ServicioId=2, TipoServicio="Bill" },
                     new Servicios(){ ServicioId=3, TipoServicio="Ram" },
@@ -26,7 +26,7 @@ namespace RegistrosBeautyCenter.Controllers
         // GET: Student
         public ActionResult Index()
         {
-            ViewBag.TotalStudents = studentList.Count();
+            ViewBag.TotalService = ServicioList.Count();
 
             return View();
         }
