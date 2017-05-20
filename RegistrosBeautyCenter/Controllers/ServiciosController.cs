@@ -14,10 +14,10 @@ namespace RegistrosBeautyCenter.Controllers
     public class ServiciosController : Controller
     {
         private BeautyCenterDb db = new BeautyCenterDb();
-
+        
         // GET: Servicios
         IList<Servicios> studentList = new List<Servicios>() {
-                    new Servicios(){ ServicioId=1, TipoServicio="Steve" },
+                    new Servicios(){ ServicioId=1, TipoServicio="Secado" },
                     new Servicios(){ ServicioId=2, TipoServicio="Bill" },
                     new Servicios(){ ServicioId=3, TipoServicio="Ram" },
                     new Servicios(){ ServicioId=4, TipoServicio="Ron" },
