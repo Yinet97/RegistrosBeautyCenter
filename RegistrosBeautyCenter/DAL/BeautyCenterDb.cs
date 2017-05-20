@@ -21,7 +21,9 @@ namespace RegistrosBeautyCenter.DAL
 
         public DbSet<Citas> Cita { get; set; }
 
-        //public DbSet<Servicios> service { get; set; }
+        public System.Data.Entity.DbSet<RegistrosBeautyCenter.Models.Empleados> Empleados { get; set; }
+
+        public DbSet<Servicios> service { get; set; }
     }
 }
         

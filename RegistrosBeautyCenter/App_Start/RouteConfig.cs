@@ -12,7 +12,7 @@ namespace RegistrosBeautyCenter
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            BLL.ServiciosBLL.Guardar();
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

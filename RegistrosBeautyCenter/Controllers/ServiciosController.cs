@@ -11,108 +11,117 @@ using RegistrosBeautyCenter.Models;
 
 namespace RegistrosBeautyCenter.Controllers
 {
-    public class CitasController : Controller
+    public class ServiciosController : Controller
     {
         private BeautyCenterDb db = new BeautyCenterDb();
 
-        // GET: Citas
+        // GET: Servicios
+        IList<Servicios> studentList = new List<Servicios>() {
+                    new Servicios(){ ServicioId=1, TipoServicio="Steve" },
+                    new Servicios(){ ServicioId=2, TipoServicio="Bill" },
+                    new Servicios(){ ServicioId=3, TipoServicio="Ram" },
+                    new Servicios(){ ServicioId=4, TipoServicio="Ron" },
+                    new Servicios(){ ServicioId=5, TipoServicio="Rob"}
+                };
+        // GET: Student
         public ActionResult Index()
         {
-            return View(db.Cita.ToList());
+            ViewBag.TotalStudents = studentList.Count();
 
+            return View();
         }
 
-        // GET: Citas/Details/5
+        // GET: Servicios/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Citas citas = db.Cita.Find(id);
-            if (citas == null)
+            Servicios servicios = db.service.Find(id);
+            if (servicios == null)
             {
                 return HttpNotFound();
             }
-            return View(citas);
+            return View(servicios);
         }
 
-        // GET: Citas/Create
+        // GET: Servicios/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Citas/Create
+        // POST: Servicios/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CitaId,ClienteId,ServicioId,NombreCliente,Fecha,Hora")] Citas citas)
+        public ActionResult Create([Bind(Include = "ServicioId,TipoServicio,Costo")] Servicios servicios)
         {
             if (ModelState.IsValid)
             {
-                db.Cita.Add(citas);
+                db.service.Add(servicios);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(citas);
+            return View(servicios);
         }
 
-        // GET: Citas/Edit/5
+        // GET: Servicios/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Citas citas = db.Cita.Find(id);
-            if (citas == null)
+            Servicios servicios = db.service.Find(id);
+            if (servicios == null)
             {
                 return HttpNotFound();
             }
-            return View(citas);
+            return View(servicios);
         }
 
-        // POST: Citas/Edit/5
+        // POST: Servicios/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CitaId,ClienteId,ServicioId,NombreCliente,Fecha,Hora")] Citas citas)
+        public ActionResult Edit([Bind(Include = "ServicioId,TipoServicio,Costo")] Servicios servicios)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(citas).State = EntityState.Modified;
+                db.Entry(servicios).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(citas);
+            return View(servicios);
         }
 
-        // GET: Citas/Delete/5
+        // GET: Servicios/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Citas citas = db.Cita.Find(id);
-            if (citas == null)
+            Servicios servicios = db.service.Find(id);
+            if (servicios == null)
             {
                 return HttpNotFound();
             }
-            return View(citas);
+            return View(servicios);
         }
 
-        // POST: Citas/Delete/5
+        // POST: Servicios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Citas citas = db.Cita.Find(id);
-            db.Cita.Remove(citas);
+            Servicios servicios = db.service.Find(id);
+            db.service.Remove(servicios);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

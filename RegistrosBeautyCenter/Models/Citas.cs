@@ -11,7 +11,7 @@ namespace RegistrosBeautyCenter.Models
         [Key]
         public int CitaId { get; set; }
         public int ClienteId { get; set; }
-        public int ServicioId { get; set; }
+        public string Servicio { get; set; }
         public string NombreCliente { get; set; }
         public DateTime Fecha { get; set; }
         public DateTime Hora { get; set; }

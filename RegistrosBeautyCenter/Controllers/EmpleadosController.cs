@@ -11,108 +11,121 @@ using RegistrosBeautyCenter.Models;
 
 namespace RegistrosBeautyCenter.Controllers
 {
-    public class CitasController : Controller
+    public class EmpleadosController : Controller
     {
         private BeautyCenterDb db = new BeautyCenterDb();
 
-        // GET: Citas
+        // GET: Empleados
         public ActionResult Index()
         {
-            return View(db.Cita.ToList());
-
+            //return View(db.Empleados.ToList());
+            var Provincia = new List<Provincias>();
+            Provincia.Add(new Provincias()
+            {
+                ProvinciaID = 1,
+                Nombre = "Distrito Nacional ",
+            });
+            Provincia.Add(new Provincias()
+            {
+                ProvinciaID = 2,
+                Nombre = "Azua",
+            });
+            var list = new SelectList(Provincia, "ProvinciaID", "Nombre");
+            ViewData["Provincia"] = list;
+            return View();
         }
 
-        // GET: Citas/Details/5
+        // GET: Empleados/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Citas citas = db.Cita.Find(id);
-            if (citas == null)
+            Empleados empleados = db.Empleados.Find(id);
+            if (empleados == null)
             {
                 return HttpNotFound();
             }
-            return View(citas);
+            return View(empleados);
         }
 
-        // GET: Citas/Create
+        // GET: Empleados/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Citas/Create
+        // POST: Empleados/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CitaId,ClienteId,ServicioId,NombreCliente,Fecha,Hora")] Citas citas)
+        public ActionResult Create([Bind(Include = "EmpleadosID,Nombre,FechaDeEntrada,SueldoFijo,Telefono,Direccion,FechaNacimiento,Email,Cedula")] Empleados empleados)
         {
             if (ModelState.IsValid)
             {
-                db.Cita.Add(citas);
+                db.Empleados.Add(empleados);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(citas);
+            return View(empleados);
         }
 
-        // GET: Citas/Edit/5
+        // GET: Empleados/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Citas citas = db.Cita.Find(id);
-            if (citas == null)
+            Empleados empleados = db.Empleados.Find(id);
+            if (empleados == null)
             {
                 return HttpNotFound();
             }
-            return View(citas);
+            return View(empleados);
         }
 
-        // POST: Citas/Edit/5
+        // POST: Empleados/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CitaId,ClienteId,ServicioId,NombreCliente,Fecha,Hora")] Citas citas)
+        public ActionResult Edit([Bind(Include = "EmpleadosID,Nombre,FechaDeEntrada,SueldoFijo,Telefono,Direccion,FechaNacimiento,Email,Cedula")] Empleados empleados)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(citas).State = EntityState.Modified;
+                db.Entry(empleados).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(citas);
+            return View(empleados);
         }
 
-        // GET: Citas/Delete/5
+        // GET: Empleados/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Citas citas = db.Cita.Find(id);
-            if (citas == null)
+            Empleados empleados = db.Empleados.Find(id);
+            if (empleados == null)
             {
                 return HttpNotFound();
             }
-            return View(citas);
+            return View(empleados);
         }
 
-        // POST: Citas/Delete/5
+        // POST: Empleados/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Citas citas = db.Cita.Find(id);
-            db.Cita.Remove(citas);
+            Empleados empleados = db.Empleados.Find(id);
+            db.Empleados.Remove(empleados);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
