@@ -13,13 +13,14 @@ namespace RegistrosBeautyCenter.DAL
         {
 
         }
-        //public <Clientes> Cliente { get; set; }
+        public DbSet<Clientes> Cliente { get; set; }
 
         //public DbSet<Empleados> Empleado { get; set; }
 
         //public DbSet<Usuarios> Usuario { get; set; }
 
         public DbSet<Citas> Cita { get; set; }
+        public DbSet<Provincias> Provincia { get; set; }
 
         public System.Data.Entity.DbSet<RegistrosBeautyCenter.Models.Empleados> Empleados { get; set; }
 
