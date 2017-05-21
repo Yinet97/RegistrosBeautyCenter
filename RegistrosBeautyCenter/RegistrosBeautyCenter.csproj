@@ -183,6 +183,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="BLL\ClientesBLL.cs" />
+    <Compile Include="BLL\ProvinciasBLL.cs" />
     <Compile Include="Controllers\CitasController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />

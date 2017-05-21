@@ -38,6 +38,7 @@ namespace RegistrosBeautyCenter.Controllers
         // GET: Clientes/Create
         public ActionResult Create()
         {
+            ViewBag.Provincias = BLL.ProvinciasBLL.GetLista();
             return View();
         }
 
