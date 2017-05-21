@@ -3,7 +3,29 @@
 @{
     ViewBag.Title = "Create";
 }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 
+    <script type="text/javascript">
+        $(function () {
+            $.getJSON("/Empleados/countries/List", function (data) {
+                var items = "<option ************** option";
+                $.each(data, function (i, country) {
+                    items += "<option value='" + country.Value + ">" + country.Text + "option";
+                });
+                $("#Country").html(items);
+            });
+            $("#Countries").change(function () {
+                $, getJSON("/Home/States/List" + $("#countries > option:selected").attr("value"), function (data) {
+                    var items = "<option>----------------</option>";
+                    $.each(data, function (i, state) {
+                        items += "<option value'" + state.Value + ">" + state.Text + "</option>";
+                    });
+                    $("#States").html(items);
+                });
+            });
+    </script>
+}
 <h2>Create</h2>
 
 
@@ -54,7 +76,13 @@
                 @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <label for="Countries">Countries</label>
+        <select id="Countries" name="Countries"></select>
+        <br /><br />
+        <label for="States">States</label>
+        <select id="States" name="States"></select>
+        <br /><br />
+        
         @*<div class="form-group">
             <br />
             <div style="color: purple;">
@@ -127,6 +155,4 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+

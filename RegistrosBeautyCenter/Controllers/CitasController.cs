@@ -42,7 +42,7 @@ namespace RegistrosBeautyCenter.Controllers
         // GET: Citas/Create
         public ActionResult Create()
         {
-            ViewBag.TotalService = BLL.ServiciosBLL.GetLista();
+            //ViewBag.TotalService = BLL.ServiciosBLL.GetLista();
             ViewBag.Clientes = BLL.ClientesBLL.GetLista();
             return View();
         }

@@ -8,14 +8,13 @@ using System.Web;
 using System.Web.Mvc;
 using RegistrosBeautyCenter.DAL;
 using RegistrosBeautyCenter.Models;
-
 namespace RegistrosBeautyCenter.Controllers
 {
     public class EmpleadosController : Controller
     {
         private BeautyCenterDb db = new BeautyCenterDb();
 
-        // GET: Empleados
+            // GET: Empleados
         public ActionResult Index()
         {
             return View();
