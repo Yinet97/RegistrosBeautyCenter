@@ -42,5 +42,7 @@ namespace RegistrosBeautyCenter.BLL
             lista = db.ciudades.ToList();
             return lista;
         }
+
+       
     }
 }
