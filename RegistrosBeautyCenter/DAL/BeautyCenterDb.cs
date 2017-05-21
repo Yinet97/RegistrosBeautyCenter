@@ -21,6 +21,7 @@ namespace RegistrosBeautyCenter.DAL
 
         public DbSet<Citas> Cita { get; set; }
         public DbSet<Provincias> Provincia { get; set; }
+        public DbSet<Ciudades> ciudades { get; set; }
 
         public System.Data.Entity.DbSet<RegistrosBeautyCenter.Models.Empleados> Empleados { get; set; }
 

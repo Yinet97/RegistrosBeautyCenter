@@ -182,6 +182,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="BLL\CiudadesBLL.cs" />
     <Compile Include="BLL\ClientesBLL.cs" />
     <Compile Include="BLL\ProvinciasBLL.cs" />
     <Compile Include="Controllers\CitasController.cs" />
@@ -196,6 +197,7 @@
     </Compile>
     <Compile Include="BLL\CitasBLL.cs" />
     <Compile Include="Models\Citas.cs" />
+    <Compile Include="Models\Ciudades.cs" />
     <Compile Include="Models\Clientes.cs" />
     <Compile Include="Models\Empleados.cs" />
     <Compile Include="Models\Facturas.cs" />
