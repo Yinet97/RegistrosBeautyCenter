@@ -14,7 +14,7 @@ namespace RegistrosBeautyCenter.Controllers
     public class CitasController : Controller
     {
         private BeautyCenterDb db = new BeautyCenterDb();
-        List<Servicios>lista = new List<Servicios>();
+        List<Servicios> lista = new List<Servicios>();
         List<Clientes> listac = new List<Clientes>();
         // GET: Citas
         public ActionResult Index()
@@ -52,7 +52,7 @@ namespace RegistrosBeautyCenter.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CitaId,ClienteId,ServicioId,NombreCliente,Fecha,Hora")] Citas citas)
+        public ActionResult Create([Bind(Include = "CitaId,Servicio,NombreCliente,Fecha,Hora")] Citas citas)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace RegistrosBeautyCenter.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CitaId,ClienteId,ServicioId,NombreCliente,Fecha,Hora")] Citas citas)
+        public ActionResult Edit([Bind(Include = "CitaId,Servicio,NombreCliente,Fecha,Hora")] Citas citas)
         {
             if (ModelState.IsValid)
             {

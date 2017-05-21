@@ -10,9 +10,10 @@ namespace RegistrosBeautyCenter.Models
     {
         [Key]
         public int CitaId { get; set; }
-        public string Servicio { get; set; }
-        public string NombreCliente { get; set; }
+        public string NombreCliente { get; set; }        
         public DateTime Fecha { get; set; }
         public DateTime Hora { get; set; }
+        public string Servicio { get; set; }
+
     }
 }
