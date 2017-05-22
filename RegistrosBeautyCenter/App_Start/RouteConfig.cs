@@ -14,9 +14,9 @@ namespace RegistrosBeautyCenter
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                "CiudadList",
+                "CiudadesList",
                 "Home/Ciudades/List/{ProvinciaId}",
-                new { controller = "Home", action = "CiudadList", ProvinciaId = "" });
+                new { controller = "Home", action = "CiudadesList", ProvinciaId = "" });
 
             routes.MapRoute(
                 "ProvinciaList",

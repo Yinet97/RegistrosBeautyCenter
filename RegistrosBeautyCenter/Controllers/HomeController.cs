@@ -11,10 +11,21 @@ namespace RegistrosBeautyCenter.Controllers
     {
         RegistrosBeautyCenter.DAL.BeautyCenterDb db = new RegistrosBeautyCenter.DAL.BeautyCenterDb();
         public JsonResult ProvinciaList()
-        {return Json(((from p in db.provincia select new { ProvinciaId = p.ProvinciaId, NombreProvincia = p.NombreProvincia })), JsonRequestBehavior.AllowGet);}
+        {
+            return Json(((from p in db.provincia select new
+            {
+                ProvinciaId = p.ProvinciaId, NombreProvincia = p.NombreProvincia
+            })), JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult CiudadesList(int ProvinciaId)
-        {var books = (from a in db.ciudade where (a.ProvinciaId == ProvinciaId) select new { CiudadId = a.CiudadesId, NombreCiudad = a.NombreCiudad });
-            return Json(books, JsonRequestBehavior.AllowGet);}
+        {
+            var ciudad = (from a in db.ciudade where (a.ProvinciaId == ProvinciaId) select new
+            {
+                CiudadesId = a.CiudadesId, NombreCiudad = a.NombreCiudad
+            });
+            return Json(ciudad, JsonRequestBehavior.AllowGet);
+        }
 
 
         //public ActionResult ProvinciaList()

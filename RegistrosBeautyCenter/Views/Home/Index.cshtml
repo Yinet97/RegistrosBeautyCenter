@@ -6,28 +6,21 @@
 <script>
     $(function () {
         $.ajax({
-            type: "GET",
-            url: "/Home/Provincias/List",
-            datatype: "Json",
-            success: function (data) {
+            type: "GET", url: "/Home/Provincias/List",
+            datatype: "Json", success: function (data) {
                 $.each(data, function (index, value) {
                     $("#Provincias").append('<option value="' + value.ProvinciaId + '">' + value.NombreProvincia + '</option>');
                 });
             }
-        });
-
+        }); 
         $("#Provincias").change(function () {
-
-            $("#Ciudades").empty();
-
-            $.ajax({
-                type: "POST",
-                url: "/Home/Ciudades/List",
-                datatype: "Json",
-                data: { ProvinciaId: $('#ProvinciaId').val() },
-                success: function (data) {
-                    $.each(data, function (index, value) {
-                        $('#Ciudades').append('<option value="' + value.CiudadesId + '">' + value.NombreCiudad + '</option>');
+                $("#Ciudades").empty();
+                $.ajax({
+                    type: "POST", url: "/Home/Provincias/List",
+                    datatype: "Json",
+                    data: { Provincias: $("#Provincias").val() },
+                    success: function (data) {
+                        $.each(data, function (index, ciudad) {$("#Ciudades").append('<option value="' + ciudad.CiudadesId + '">' + ciudad.NombreCiudad + '</option>');
                     });
                 }
             });
@@ -92,7 +85,6 @@
     <label for="Provincias">Provincias</label>
     <select id="Provincias" name="Provincias"></select>
     <br /><br />
-
     <label for="Ciudades">Ciudades</label>
     <select id="Ciudades" name="Ciudades"></select>
     <br /><br />

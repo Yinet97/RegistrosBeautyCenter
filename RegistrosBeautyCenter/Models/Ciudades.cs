@@ -12,7 +12,7 @@ namespace RegistrosBeautyCenter.Models
         public int ProvinciaId { get; set; }
         public int CiudadesId { get; set; }
         public string NombreCiudad { get; set; }
-
+        
         //public static IQueryable<Ciudades> GetCiudades()
         //{
         //    return new List<Ciudades>
