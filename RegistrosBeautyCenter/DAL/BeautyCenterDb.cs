@@ -15,15 +15,15 @@ namespace RegistrosBeautyCenter.DAL
         }
         public DbSet<Clientes> Cliente { get; set; }
 
-        public DbSet<Empleados> Empleado { get; set; }
+        //public DbSet<Empleados> Empleado { get; set; }
 
         //public DbSet<Usuarios> Usuario { get; set; }
 
         public DbSet<Citas> Cita { get; set; }
 
-        public System.Data.Entity.DbSet<RegistrosBeautyCenter.Models.Empleados> Empleados { get; set; }
-
         public DbSet<Servicios> service { get; set; }
+        public DbSet<Provincias> provincia { get; set; }
+        public DbSet<Ciudades> ciudade { get; set; }
     }
 }
         

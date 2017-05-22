@@ -24,7 +24,7 @@ namespace RegistrosBeautyCenter
                 new { controller = "Home", action = "ProvinciaList" });
 
             //BLL.ServiciosBLL.Guardar();
-            //BLL.ProvinciasBLL.Guardar();
+            BLL.ProvinciasBLL.Guardar();
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

@@ -16,13 +16,13 @@ namespace RegistrosBeautyCenter.BLL
             {
                 using (var db = new BeautyCenterDb())
                 {
-                    //db.Provincia.Add(new Provincias() { Nombre = "Duarte" });
-                    //db.Provincia.Add(new Provincias() { Nombre = "Mao" });
-                    //db.Provincia.Add(new Provincias() { Nombre = "Sanchez Ramirez" });
-                    //db.Provincia.Add(new Provincias() { Nombre = "Sto Dgo" });
-                    //db.Provincia.Add(new Provincias() { Nombre = "klk" });
-                    //db.Provincia.Add(new Provincias() { Nombre = "Hola" });
-                    //db.SaveChanges();
+                    db.provincia.Add(new Provincias() {ProvinciaId = 1, NombreProvincia = "Duarte" });
+                    db.provincia.Add(new Provincias() {ProvinciaId = 1, NombreProvincia = "Mao" });
+                    db.provincia.Add(new Provincias() {ProvinciaId = 1, NombreProvincia= "Sanchez Ramirez" });
+                    db.provincia.Add(new Provincias() {ProvinciaId = 1, NombreProvincia = "Sto Dgo" });
+                    db.provincia.Add(new Provincias() {ProvinciaId = 1, NombreProvincia = "klk" });
+                    db.provincia.Add(new Provincias() {ProvinciaId = 1, NombreProvincia = "Hola" });
+                    db.SaveChanges();
                 }
                 retorno = true;
             }

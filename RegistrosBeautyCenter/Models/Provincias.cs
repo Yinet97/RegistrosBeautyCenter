@@ -9,16 +9,17 @@ namespace RegistrosBeautyCenter.Models
 {
     public class Provincias
     {
+        [Key]
         public int ProvinciaId { get; set; }
         public string NombreProvincia { get; set; }
 
-        public static IQueryable<Provincias> GetProvincias()
-        {
-            return new List<Provincias>
-            {
-                new Provincias{ProvinciaId = 1,NombreProvincia = "Duarte"},
-                new Provincias{ProvinciaId = 2,NombreProvincia = "Santiago"}
-            }.AsQueryable();
-        }
+        //public static IQueryable<Provincias> GetProvincias()
+        //{
+        //    return new List<Provincias>
+        //    {
+        //        new Provincias{ProvinciaId = "DU",NombreProvincia = "Duarte"},
+        //        new Provincias{ProvinciaId = "SA",NombreProvincia = "Santiago"}
+        //    }.AsQueryable();
+        //}
     }
 }

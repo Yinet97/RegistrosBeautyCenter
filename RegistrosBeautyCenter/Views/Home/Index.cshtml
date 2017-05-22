@@ -1,15 +1,75 @@
 ﻿
 @section Scripts {
 
-    <script type="text/javascript">
-        $(function () {
-            $.getJSON("/Home/Provincias/List", function (data) {
-                var items = "<option>--------------</option>";
-                $.each(data, function (i, provincia) {
-                    items += "<option value='>" + provincia.Value + "'>" + provincia.Text + "</option>";
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script>
+    $(function () {
+        $.ajax({
+            type: "GET",
+            url: "/Home/Provincias/List",
+            datatype: "Json",
+            success: function (data) {
+                $.each(data, function (index, value) {
+                    $("#Provincias").append('<option value="' + value.ProvinciaId + '">' + value.NombreProvincia + '</option>');
                 });
-                $("#Provincias").html(items);
+            }
+        });
+
+        $("#Provincias").change(function () {
+
+            $("#Ciudades").empty();
+
+            $.ajax({
+                type: "POST",
+                url: "/Home/Ciudades/List",
+                datatype: "Json",
+                data: { ProvinciaId: $('#ProvinciaId').val() },
+                success: function (data) {
+                    $.each(data, function (index, value) {
+                        $('#Ciudades').append('<option value="' + value.CiudadesId + '">' + value.NombreCiudad + '</option>');
+                    });
+                }
             });
+        });
+    });
+</script>
+    @*<script type="text/javascript">
+        
+
+
+            $(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Home/Provincias/List",
+                    datatype: "Json",
+                    success: function (data) {
+                        $.each(data, function (index, value) {
+                            $("#Provincias").append('<option value="' + value.provincia + '">' + value.provincia + '</option>');
+                        });
+                    }
+                });
+            $("#Provincias").change(function () {
+                $("#Ciudad").empty();
+                $.ajax({
+                    type: 'POST',
+                    url: "/Home/Ciudades/List",
+                    dataType: "Json",
+                    data: { id: $("#Provincias").val() },
+                    success: function (citys) {
+                        // states contains the JSON formatted list
+                        // of states passed from the controller
+                        $.each(citys, function (i, city) {
+                            $("#Ciudad").append('<option value="' + city.Value + '">' + city.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        alert('Failed to retrieve states.' + ex);
+                    }
+                });
+                return false;
+            })
+        });
 
             $("#Provincias").change(function () {
                 $.getJSON("/Home/Ciudades/List" + $("#Provincias > option:selected").attr("value"), function (data) {
@@ -21,7 +81,9 @@
                 });
             });
         });
-    </script>
+    </script>*@
+
+
 }
 <h1>@ViewBag.Title</h1>
 
